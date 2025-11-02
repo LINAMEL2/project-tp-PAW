@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+</head>
+<body>
+            <h1>WEB PAGE</h1> <br>
+    <nav>
+        <a href="#">Home</a>|
+        <a href="#">Attendance list</a>|
+        <a href="#">Add student</a>|
+        <a href="#">Reports</a>|
+        <a href="#">Logout</a>|
+    </nav>
+    <h2>student attendance</h2>
+        <table border="1" class="table">
+    <tr>
+        <th rowspan="2">last name</th>
+        <th rowspan="2">First name </th>
+        <th rowspan="2">course  </th>
+        <th colspan="2">session date</th>
+        <tr>
+                <th>participated</th>
+                <th>present</th>
+        </tr>
+    </tr>
+        <tr>
+                <td>hamichi</td>
+                <td>lina amel</td>
+                <td>PAW</td>
+                
+                <td>yes</td>
+                <td>yes</td>
+                
+        </tr>
+        </table>
+            <form >
+        <label for="student id">Student ID</label><br>
+        <input type="text" id="student id" name="student id" ><br>
+
+        <label for="lastname">last name</label><br>
+        <input type="text" id="lastname" name="lastname"><br>
+
+        <label for=" firstname">first name</label><br>
+        <input type="text" id="firstname" name="firstname"><br>
+
+        <label for="email">email</label><br>
+        <input type="text" id="email" name="email" required><br>
+
+        <button>Submit</button>
+
+    </form>
+</body>
+</html>
