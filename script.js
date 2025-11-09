@@ -306,3 +306,50 @@ $(document).ready(function() {
 });
 
 
+
+
+
+// Filtre par nom / prénom
+$("#searchInput").on("keyup", function() {
+    const search = $(this).val().toLowerCase();
+    $(".table tr").slice(2).filter(function() {
+        const text = $(this).find("td:nth-child(2), td:nth-child(3)").text().toLowerCase();
+        $(this).toggle(text.includes(search));
+    });
+});
+
+function countAbsences(row) {
+    let absences = 0;
+    $(row).find("td:nth-child(4), td:nth-child(6), td:nth-child(8), td:nth-child(10), td:nth-child(12), td:nth-child(14)").each(function() {
+        if (!$(this).find("input").is(":checked")) absences++;
+    });
+    return absences;
+}
+
+function countParticipations(row) {
+    let participations = 0;
+    $(row).find("td:nth-child(5), td:nth-child(7), td:nth-child(9), td:nth-child(11), td:nth-child(13), td:nth-child(15)").each(function() {
+        if ($(this).find("input").is(":checked")) participations++;
+    });
+    return participations;
+}
+
+
+
+
+// Tri par absences (ascendant)
+$("#sortAbs").click(function() {
+    let rows = $(".table tr").slice(2).get();
+    rows.sort((a, b) => countAbsences(a) - countAbsences(b));
+    $(".table").append(rows);
+    $("#sortMessage").text("Currently sorted by absences (ascending)");
+});
+
+// Tri par participation (descendant)
+$("#sortPar").click(function() {
+    let rows = $(".table tr").slice(2).get();
+    rows.sort((a, b) => countParticipations(b) - countParticipations(a));
+    $(".table").append(rows);
+    $("#sortMessage").text("Currently sorted by participation (descending)");
+});
+
