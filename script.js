@@ -48,9 +48,10 @@ document.querySelectorAll("input[type='checkbox']").forEach(box => {
     box.addEventListener("change", updateTable);
 });
 
-// --- Validation + Ajout de l’étudiant ---
+// --- Validation + Ajout de l'étudiant ---
 const form = document.querySelector("form");
 
+if (form) {
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     document.querySelectorAll(".error").forEach(e => e.remove());
@@ -116,11 +117,17 @@ form.addEventListener("submit", function (event) {
         form.reset();
     }
 });
+}
 
 // --- Bouton "Show Report" ---
 const showReportBtn = document.getElementById("showReport");
 const reportSection = document.getElementById("reportSection");
 
+// Variables pour stocker les instances de graphiques
+let attendanceChartInstance = null;
+let participationChartInstance = null;
+
+if (showReportBtn && reportSection) {
 showReportBtn.addEventListener("click", () => {
     reportSection.style.display = "block";
 
@@ -159,7 +166,11 @@ showReportBtn.addEventListener("click", () => {
 
     // --- Graphique anneau ---
     const ctxAttendance = document.getElementById("attendanceChart");
-    new Chart(ctxAttendance, {
+    // Détruire le graphique existant s'il existe
+    if (attendanceChartInstance) {
+        attendanceChartInstance.destroy();
+    }
+    attendanceChartInstance = new Chart(ctxAttendance, {
         type: "doughnut",
         data: {
             labels: ["Présents", "Absents"],
@@ -182,7 +193,11 @@ showReportBtn.addEventListener("click", () => {
 
     // --- Graphique barres ---
     const ctxParticipation = document.getElementById("participationChart");
-    new Chart(ctxParticipation, {
+    // Détruire le graphique existant s'il existe
+    if (participationChartInstance) {
+        participationChartInstance.destroy();
+    }
+    participationChartInstance = new Chart(ctxParticipation, {
         type: "bar",
         data: {
             labels: labels,
@@ -202,6 +217,7 @@ showReportBtn.addEventListener("click", () => {
         }
     });
 });
+}
 
 
 
@@ -341,6 +357,9 @@ function countParticipations(row) {
 $("#sortAbs").click(function() {
     let rows = $(".table tr").slice(2).get();
     rows.sort((a, b) => countAbsences(a) - countAbsences(b));
+    // Retirer toutes les lignes de données
+    $(".table tr").slice(2).remove();
+    // Ajouter les lignes triées
     $(".table").append(rows);
     $("#sortMessage").text("Currently sorted by absences (ascending)");
 });
@@ -349,6 +368,9 @@ $("#sortAbs").click(function() {
 $("#sortPar").click(function() {
     let rows = $(".table tr").slice(2).get();
     rows.sort((a, b) => countParticipations(b) - countParticipations(a));
+    // Retirer toutes les lignes de données
+    $(".table tr").slice(2).remove();
+    // Ajouter les lignes triées
     $(".table").append(rows);
     $("#sortMessage").text("Currently sorted by participation (descending)");
 });

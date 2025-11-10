@@ -176,22 +176,6 @@ form button:hover {
     visibility: visible;
 }
 
-
-
-#report-section {
-  display: none;
-  background-color: #f2f2f2;
-  border-radius: 12px;
-  padding: 30px;
-  width: 700px;
-  max-width: 90%;
-  margin: 40px auto;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-
-
 canvas {
   margin-bottom: 30px;
 }
@@ -278,10 +262,6 @@ canvas {
 .hovered {
   outline: 2px solid #ffa726; /* contour orange */
   filter: brightness(1.05);
-}
-
-
-.hovered {
   background-color: #f0f8ff;
   cursor: pointer;
 }
@@ -292,7 +272,7 @@ canvas {
   top: 0; left: 0;
   width: 100%; height: 100%;
   background-color: rgba(0,0,0,0.5);
-  z-index: 999;
+  z-index: 1000;
 }
 
 .popup-content {
