@@ -361,7 +361,7 @@ $("#sortAbs").click(function() {
     $(".table tr").slice(2).remove();
     // Ajouter les lignes triées
     $(".table").append(rows);
-    $("#sortMessage").text("Currently sorted by absences (ascending)");
+    $("#sortMessage").text("Currently sorted by absences");
 });
 
 // Tri par participation (descendant)
@@ -372,6 +372,6 @@ $("#sortPar").click(function() {
     $(".table tr").slice(2).remove();
     // Ajouter les lignes triées
     $(".table").append(rows);
-    $("#sortMessage").text("Currently sorted by participation (descending)");
+    $("#sortMessage").text("Currently sorted by participation");
 });
 
