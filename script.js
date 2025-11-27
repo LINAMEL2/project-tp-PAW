@@ -221,24 +221,16 @@ showReportBtn.addEventListener("click", () => {
 
 
 
-
-
-
-
-
-
-
 $(document).ready(function() {
 
-  // Hover sur les lignes à partir de la 3e (évite les entêtes)
-  $(".table tr").slice(2).hover(
-    function() {
-      $(this).addClass("hovered");
-    },
-    function() {
-      $(this).removeClass("hovered");
-    }
-  );
+$(".table").on("mouseenter", "tbody tr", function () {
+  $(this).addClass("hovered");
+});
+
+$(".table").on("mouseleave", "tbody tr", function () {
+  $(this).removeClass("hovered");
+});
+
 
   // Clic sur les lignes à partir de la 3e
   $(".table tr").slice(2).click(function(event) {
@@ -277,10 +269,6 @@ $(document).ready(function() {
     }
   });
 });
-
-
-
-
 
 
 

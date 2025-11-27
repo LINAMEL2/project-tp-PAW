@@ -33,65 +33,69 @@
 
   <!-- Tableau -->
   <table border="1" class="table">
-    <tr>
-      <th rowspan="2">ID</th>
-      <th rowspan="2">Last name</th>
-      <th rowspan="2">First name</th>
-      <th colspan="2">S1</th>
-      <th colspan="2">S2</th>
-      <th colspan="2">S3</th>
-      <th colspan="2">S4</th>
-      <th colspan="2">S5</th>
-      <th colspan="2">S6</th>
-      <th rowspan="2">Message</th>
-    </tr>
-    <tr>
-      <th>P</th><th>Pa</th>
-      <th>P</th><th>Pa</th>
-      <th>P</th><th>Pa</th>
-      <th>P</th><th>Pa</th>
-      <th>P</th><th>Pa</th>
-      <th>P</th><th>Pa</th>
-    </tr>
+    <thead>
+      <tr>
+        <th rowspan="2">ID</th>
+        <th rowspan="2">Last name</th>
+        <th rowspan="2">First name</th>
+        <th colspan="2">S1</th>
+        <th colspan="2">S2</th>
+        <th colspan="2">S3</th>
+        <th colspan="2">S4</th>
+        <th colspan="2">S5</th>
+        <th colspan="2">S6</th>
+        <th rowspan="2">Message</th>
+      </tr>
+      <tr>
+        <th>P</th><th>Pa</th>
+        <th>P</th><th>Pa</th>
+        <th>P</th><th>Pa</th>
+        <th>P</th><th>Pa</th>
+        <th>P</th><th>Pa</th>
+        <th>P</th><th>Pa</th>
+      </tr>
+    </thead>
 
-    <tr>
-      <td>001</td>
-      <td>Hamichi</td>
-      <td>Lina Amel</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td class="message-cell"></td>
-    </tr>
+    <tbody>
+      <tr>
+        <td>001</td>
+        <td>Hamichi</td>
+        <td>Lina Amel</td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td class="message-cell"></td>
+      </tr>
 
-    <tr>
-      <td>002</td>
-      <td>Ahmed</td>
-      <td>Sara</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td class="message-cell"></td>
-    </tr>
+      <tr>
+        <td>002</td>
+        <td>Ahmed</td>
+        <td>Sara</td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td class="message-cell"></td>
+      </tr>
 
-    <tr>
-      <td>003</td>
-      <td>Houcine</td>
-      <td>Rania</td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td><input type="checkbox"></td><td><input type="checkbox"></td>
-      <td class="message-cell"></td>
-    </tr>
+      <tr>
+        <td>003</td>
+        <td>Houcine</td>
+        <td>Rania</td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td><input type="checkbox"></td><td><input type="checkbox"></td>
+        <td class="message-cell"></td>
+      </tr>
+    </tbody>
   </table>
 
 
@@ -106,21 +110,23 @@
 
 
 <!-- Formulaire -->
-  <form>
-    <label for="student-id">Student ID</label><br />
-    <input type="text" id="student-id" name="student-id" /><br />
+<form action="add_student.php" method="POST" class="student-form">
 
-    <label for="lastname">Last name</label><br />
-    <input type="text" id="lastname" name="lastname" /><br />
+    <label for="student-id">Student ID</label><br>
+    <input type="text" id="student-id" name="id" required><br>
 
-    <label for="firstname">First name</label><br />
-    <input type="text" id="firstname" name="firstname" /><br />
+    <label for="lastname">Last name</label><br>
+    <input type="text" id="lastname" name="lastname" required><br>
 
-    <label for="email">Email</label><br />
-    <input type="text" id="email" name="email" required /><br />
+    <label for="firstname">First name</label><br>
+    <input type="text" id="firstname" name="firstname" required><br>
 
-    <button>Submit</button>
-  </form>
+    <label for="email">Email</label><br>
+    <input type="email" id="email" name="email" required><br>
+
+    <button type="submit">Submit</button>
+</form>
+
 
   <!-- Message de confirmation -->
   <div id="confirmation">✅ Student added successfully!</div>
